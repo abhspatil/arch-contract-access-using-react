@@ -1,0 +1,21 @@
+{
+  "name": "ts-hello-interaction",
+  "version": "1.0.0",
+  "description": "Arch hello Interaction",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Abhishek Police Patil",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "@saturnbtcio/arch-sdk": "^0.0.6",
+    "dotenv": "^16.4.7"
+  },
+  "type": "module"
+}
