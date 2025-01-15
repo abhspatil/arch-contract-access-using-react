@@ -40,18 +40,19 @@ export async function generateInstructionAndSendRaw() {
   try {
     const instruction: Instruction = {
       program_id: PubkeyUtil.fromHex(PROGRAM_PUBKEY!),
-      accounts: [
-        {
-          pubkey: PubkeyUtil.fromHex(WALLET_PUBKEY!),
-          is_signer: true,
-          is_writable: false,
-        },
-        {
-          pubkey: accountPubkey,
-          is_signer: false,
-          is_writable: true,
-        },
-      ],
+      // accounts: [
+      //   {
+      //     pubkey: PubkeyUtil.fromHex(WALLET_PUBKEY!),
+      //     is_signer: false,
+      //     is_writable: false,
+      //   },
+      //   {
+      //     pubkey: accountPubkey,
+      //     is_signer: false,
+      //     is_writable: false,
+      //   },
+      // ],
+      accounts: [],
       data: new Uint8Array(),
     };
 
@@ -69,14 +70,23 @@ export async function generateInstructionAndSendRaw() {
       Buffer.from(MessageUtil.hash(messageObj)).toString("hex")
     );
 
-    return;
-    const signature =
-      "IHC0x5anO5WUH+1pINbRCdRikm656JcoRRfuNYj0fSjZBfVHNB9MNJ7YOwwsggFxqRWeSEl9L8ahrERPjFxsus0=";
+    // return;
 
-    const signatureBytes = new Uint8Array(
-      Buffer.from(signature, "base64").slice(-64)
-    );
+    const signature =
+      "IFd8tvcbXPXe1thVty0+/p0/qf9ksqNPqa5hpi9yO1wmLpjlexJ+IQHyir6TJtYTV/Le4pFJT5yNxAL4crWH8Oo=";
+    // const signatureBytes = new Uint8Array();
+    // Buffer.from(signature, "base64")
+    const signatureBytes = Buffer.from(signature, "base64").slice(-64);
     console.log(`Signature bytes: ${signatureBytes}`);
+
+    // console.log("Raw Transaction : ", {
+    //   version: 0,
+    //   signatures: [],
+    //   message: messageObj,
+    // });
+
+    console.log("Signature: ", signatureBytes);
+    console.log("Message: ", messageObj);
 
     const result = await client.sendTransaction({
       version: 0,

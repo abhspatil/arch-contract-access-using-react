@@ -15,7 +15,14 @@
   },
   "dependencies": {
     "@saturnbtcio/arch-sdk": "^0.0.6",
-    "dotenv": "^16.4.7"
+    "bitcoinjs-lib": "^6.1.5",
+    "bitcoinjs-message": "^2.2.0",
+    "cache": "^3.0.0",
+    "clean": "^4.0.2",
+    "dotenv": "^16.4.7",
+    "ecpair": "^2.1.0",
+    "npm": "^11.0.0",
+    "tiny-secp256k1": "^2.2.3"
   },
   "type": "module"
 }
